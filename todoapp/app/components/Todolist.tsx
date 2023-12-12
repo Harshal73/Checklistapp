@@ -1,5 +1,6 @@
 import { ITask } from '@/types/tasks'
 import React from 'react'
+import Task from './Task'
 interface TodolistProps {
   tasks: ITask[]
 }
@@ -7,7 +8,7 @@ interface TodolistProps {
 const Todolist : React.FC<TodolistProps> = ({ tasks}) => {
   return (
     <div className="overflow-x-auto">
-  <table className="table">
+  <table className="table w-full">
     {/* head */}
     <thead>
       <tr> 
@@ -17,10 +18,7 @@ const Todolist : React.FC<TodolistProps> = ({ tasks}) => {
     </thead> 
     <tbody>
       {tasks ?.map((task) =>(
-          <tr key={task.id}>
-            <td>{task.text}</td>
-            <td>Blue</td>
-      </tr>
+        <Task key={task.id} task={task} />
       ))}
     </tbody>
   </table>
